@@ -3,10 +3,7 @@ package com.example.viewcontrollertodolist;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.TextFieldListCell;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -16,7 +13,7 @@ import java.util.ArrayList;
 public class HelloController {
     @FXML
     public TextField textInput;
-    public Button addButton;
+    public ComboBox comboBox;
     public ListView toDoListMon;
     public ListView toDoListTue;
     public ListView toDoListWed;
@@ -33,30 +30,36 @@ public class HelloController {
     ObservableList<String> itemsSat;
     ObservableList<String> itemsSun;
 
-    ArrayList<ListView> allViews;
-
-
-
-
     public void initialize() {
 
-        toDoListM.setEditable(true);
+        toDoListMon.setEditable(true);
         toDoListMon.setCellFactory(TextFieldListCell.forListView());
-        allViews = new ArrayList();
-        for ()
+
+        toDoListTue.setEditable(true);
+        toDoListTue.setCellFactory(TextFieldListCell.forListView());
+
+        toDoListWed.setEditable(true);
+        toDoListWed.setCellFactory(TextFieldListCell.forListView());
+
+        toDoListThu.setEditable(true);
+        toDoListThu.setCellFactory(TextFieldListCell.forListView());
+
+        toDoListFri.setEditable(true);
+        toDoListFri.setCellFactory(TextFieldListCell.forListView());
+
+        toDoListSat.setEditable(true);
+        toDoListSat.setCellFactory(TextFieldListCell.forListView());
+
+        toDoListSun.setEditable(true);
+        toDoListSun.setCellFactory(TextFieldListCell.forListView());
 
         itemsMon = FXCollections.observableArrayList();
-        allLists.add(itemsMon);
         itemsTue = FXCollections.observableArrayList();
         itemsWed = FXCollections.observableArrayList();
         itemsThu = FXCollections.observableArrayList();
         itemsFri = FXCollections.observableArrayList();
         itemsSat = FXCollections.observableArrayList();
         itemsSun = FXCollections.observableArrayList();
-
-        for (ArrayList<String> eachList : allLists) {
-            eachList.
-        }
 
         toDoListMon.setItems(itemsMon);
         toDoListTue.setItems(itemsTue);
@@ -65,18 +68,51 @@ public class HelloController {
         toDoListFri.setItems(itemsFri);
         toDoListSat.setItems(itemsSat);
         toDoListSun.setItems(itemsSun);
+        comboBox.getItems().add("Monday");
+        comboBox.getItems().add("Tuesday");
+        comboBox.getItems().add("Wednesday");
+        comboBox.getItems().add("Thursday");
+        comboBox.getItems().add("Friday");
+        comboBox.getItems().add("Saturday");
+        comboBox.getItems().add("Sunday");
+
     }
 
     //code for onAction
     public void onHelloButtonClick() {
-        String userType = textInput.getText();
-        itemsMon.add(userType);
-        itemsTue.add(userType);
-        itemsWed.add(userType);
-        itemsThu.add(userType);
-        itemsFri.add(userType);
-        itemsSat.add(userType);
-        itemsSun.add(userType);
+
+
+        String selectedIndex = comboBox.getSelectionModel().getSelectedItem().toString();
+        System.out.println(selectedIndex);
+        if (selectedIndex == "Monday") {
+            String userTypeMon = textInput.getText();
+            itemsMon.add(userTypeMon);
+    }
+        if (selectedIndex == "Tuesday") {
+            String userTypeTue = textInput.getText();
+            itemsTue.add(userTypeTue);
+        }
+        if (selectedIndex == "Wednesday") {
+            String userTypeWed = textInput.getText();
+            itemsWed.add(userTypeWed);
+        }
+        if (selectedIndex == "Thursday") {
+            String userTypeThu = textInput.getText();
+            itemsThu.add(userTypeThu);
+        }
+        if (selectedIndex == "Friday") {
+            String userTypeFri = textInput.getText();
+            itemsFri.add(userTypeFri);
+        }
+        if (selectedIndex == "Saturday") {
+            String userTypeSat = textInput.getText();
+            itemsSat.add(userTypeSat);
+        }
+        if (selectedIndex == "Sunday") {
+            String userTypeSun = textInput.getText();
+            itemsSun.add(userTypeSun);
+        }
+
 
         textInput.clear();
     }
@@ -94,7 +130,6 @@ public class HelloController {
             }
         }
     }
-
     public void deleteKeyTue( final KeyEvent keyEvent ) {
         final Object selectedItem;
         selectedItem = toDoListTue.getSelectionModel().getSelectedItem();
@@ -104,6 +139,71 @@ public class HelloController {
 
             if ( keyEvent.getCode().equals( KeyCode.BACK_SPACE ) ) {
                 toDoListTue.getItems().remove(selectedItem);
+                //text.clear
+            }
+        }
+    }
+    public void deleteKeyWed( final KeyEvent keyEvent ) {
+        final Object selectedItem;
+        selectedItem = toDoListWed.getSelectionModel().getSelectedItem();
+        toDoListWed.getSelectionModel();
+
+        if ( selectedItem != null ) {
+
+            if ( keyEvent.getCode().equals( KeyCode.BACK_SPACE ) ) {
+                toDoListWed.getItems().remove(selectedItem);
+                //text.clear
+            }
+        }
+    }
+    public void deleteKeyThu( final KeyEvent keyEvent ) {
+        final Object selectedItem;
+        selectedItem = toDoListThu.getSelectionModel().getSelectedItem();
+        toDoListThu.getSelectionModel();
+
+        if ( selectedItem != null ) {
+
+            if ( keyEvent.getCode().equals( KeyCode.BACK_SPACE ) ) {
+                toDoListThu.getItems().remove(selectedItem);
+                //text.clear
+            }
+        }
+    }
+    public void deleteKeyFri( final KeyEvent keyEvent ) {
+        final Object selectedItem;
+        selectedItem = toDoListFri.getSelectionModel().getSelectedItem();
+        toDoListFri.getSelectionModel();
+
+        if ( selectedItem != null ) {
+
+            if ( keyEvent.getCode().equals( KeyCode.BACK_SPACE ) ) {
+                toDoListFri.getItems().remove(selectedItem);
+                //text.clear
+            }
+        }
+    }
+    public void deleteKeySat( final KeyEvent keyEvent ) {
+        final Object selectedItem;
+        selectedItem = toDoListSat.getSelectionModel().getSelectedItem();
+        toDoListSat.getSelectionModel();
+
+        if ( selectedItem != null ) {
+
+            if ( keyEvent.getCode().equals( KeyCode.BACK_SPACE ) ) {
+                toDoListSat.getItems().remove(selectedItem);
+                //text.clear
+            }
+        }
+    }
+    public void deleteKeySun( final KeyEvent keyEvent ) {
+        final Object selectedItem;
+        selectedItem = toDoListSun.getSelectionModel().getSelectedItem();
+        toDoListSun.getSelectionModel();
+
+        if ( selectedItem != null ) {
+
+            if ( keyEvent.getCode().equals( KeyCode.BACK_SPACE ) ) {
+                toDoListSun.getItems().remove(selectedItem);
                 //text.clear
             }
         }

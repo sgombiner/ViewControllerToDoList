@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
@@ -12,13 +13,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.viewcontrollertodolist.HelloController">
+<Pane prefHeight="800.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.viewcontrollertodolist.HelloController">
    <children>
-      <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1390.0">
+      <HBox layoutY="-29.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="881.0" prefWidth="1440.0">
          <children>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <VBox alignment="CENTER" prefHeight="1080.0" prefWidth="1440.0" spacing="20.0">
+                  <VBox alignment="CENTER" prefHeight="650.0" prefWidth="200.0" spacing="20.0">
                      <padding>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </padding>
@@ -33,7 +34,7 @@
                               </ProgressIndicator>
                            </children>
                         </HBox>
-                        <ListView fx:id="toDoListMon" prefHeight="613.0" prefWidth="153.0" />
+                        <ListView fx:id="toDoListMon" onKeyPressed="#deleteKeyMon" prefHeight="400.0" prefWidth="153.0" />
                      </children>
                   </VBox>
                </children>
@@ -55,7 +56,7 @@
                               </ProgressIndicator>
                            </children>
                         </HBox>
-                        <ListView fx:id="toDoListTue" prefHeight="613.0" prefWidth="153.0" />
+                        <ListView fx:id="toDoListTue" onKeyPressed="#deleteKeyTue" prefHeight="400.0" prefWidth="153.0" />
                      </children>
                   </VBox>
                </children>
@@ -77,7 +78,7 @@
                               </ProgressIndicator>
                            </children>
                         </HBox>
-                        <ListView fx:id="toDoListWed" prefHeight="613.0" prefWidth="153.0" />
+                        <ListView fx:id="toDoListWed" onKeyPressed="#deleteKeyWed" prefHeight="400.0" prefWidth="153.0" />
                      </children>
                   </VBox>
                </children>
@@ -99,14 +100,14 @@
                               </ProgressIndicator>
                            </children>
                         </HBox>
-                        <ListView fx:id="toDoListThu" prefHeight="613.0" prefWidth="153.0" />
+                        <ListView fx:id="toDoListThu" onKeyPressed="#deleteKeyThu" prefHeight="400.0" prefWidth="153.0" />
                      </children>
                   </VBox>
                </children>
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <VBox alignment="CENTER" prefHeight="1080.0" prefWidth="1440.0" spacing="20.0">
+                  <VBox alignment="CENTER" prefHeight="800.0" prefWidth="200.0" spacing="20.0">
                      <padding>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </padding>
@@ -121,7 +122,7 @@
                               </ProgressIndicator>
                            </children>
                         </HBox>
-                        <ListView fx:id="toDoListFri" prefHeight="613.0" prefWidth="153.0" />
+                        <ListView fx:id="toDoListFri" onKeyPressed="#deleteKeyFri" prefHeight="400.0" prefWidth="153.0" />
                      </children>
                   </VBox>
                </children>
@@ -143,7 +144,7 @@
                               </ProgressIndicator>
                            </children>
                         </HBox>
-                        <ListView fx:id="toDoListSat" prefHeight="613.0" prefWidth="153.0" />
+                        <ListView fx:id="toDoListSat" onKeyPressed="#deleteKeySat" prefHeight="400.0" prefWidth="153.0" />
                      </children>
                   </VBox>
                </children>
@@ -165,7 +166,7 @@
                               </ProgressIndicator>
                            </children>
                         </HBox>
-                        <ListView fx:id="toDoListSun" prefHeight="613.0" prefWidth="153.0" />
+                        <ListView fx:id="toDoListSun" onKeyPressed="#deleteKeySun" prefHeight="400.0" prefWidth="153.0" />
                      </children>
                   </VBox>
                </children>
@@ -175,16 +176,6 @@
             <Insets left="20.0" right="20.0" />
          </padding>
       </HBox>
-      <Pane layoutX="85.0" layoutY="904.0" prefHeight="209.0" prefWidth="1209.0">
-         <children>
-            <HBox layoutX="6.0" layoutY="95.0" prefHeight="55.0" prefWidth="1203.0">
-               <children>
-                  <TextField fx:id="textInput" prefHeight="25.0" prefWidth="1051.0" />
-                  <ComboBox prefWidth="150.0" />
-               </children>
-            </HBox>
-         </children>
-      </Pane>
       <StackPane layoutX="32.0" layoutY="22.0" prefHeight="186.0" prefWidth="1365.0">
          <children>
             <Label alignment="CENTER" contentDisplay="BOTTOM" rotate="90.0" text="Sam Gombiner's" StackPane.alignment="CENTER_LEFT">
@@ -206,6 +197,17 @@
                   <Insets right="340.0" />
                </padding>
             </Label>
+         </children>
+      </StackPane>
+      <StackPane layoutX="7.0" layoutY="732.0" prefHeight="0.0" prefWidth="1440.0">
+         <children>
+            <HBox prefHeight="25.0" prefWidth="1606.0">
+               <children>
+                  <Separator prefHeight="19.0" prefWidth="72.0" />
+                  <TextField fx:id="textInput" onAction="#onHelloButtonClick" prefHeight="25.0" prefWidth="1148.0" />
+                  <ComboBox fx:id="comboBox" prefWidth="150.0" />
+               </children>
+            </HBox>
          </children>
       </StackPane>
    </children>
